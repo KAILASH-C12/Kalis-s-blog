@@ -1,0 +1,51 @@
+---
+title: "Boost Your Next.js Performance"
+description: "Practical tips to improve your Core Web Vitals and user experience in Next.js applications."
+date: "2026-02-17"
+tags: ["Next.js", "Performance", "Optimization"]
+---
+
+# Boost Your Next.js Performance
+
+Performance is king. In this post, we explore several techniques to make your Next.js app fly.
+
+## 1. Image Optimization
+
+Always use the `next/image` component. It automatically serves optimized images in modern formats like WebP and AVIF.
+
+```tsx
+import Image from 'next/image'
+import hero from '../public/hero.jpg'
+
+export default function Hero() {
+  return (
+    <Image 
+      src={hero}
+      alt="Hero Image"
+      placeholder="blur"
+      priority
+    />
+  )
+}
+```
+
+## 2. Font Optimization
+
+Use `next/font` to automatically optimize your fonts and remove layout shift.
+
+## 3. Dynamic Imports
+
+Use `next/dynamic` for heavy components that are not critical for the initial paint.
+
+```tsx
+import dynamic from 'next/dynamic'
+
+const HeavyChart = dynamic(() => import('../components/HeavyChart'), {
+  loading: () => <p>Loading...</p>,
+  ssr: false,
+})
+```
+
+## Conclusion
+
+By applying these simple techniques, you can significantly improve your Lighthouse score.

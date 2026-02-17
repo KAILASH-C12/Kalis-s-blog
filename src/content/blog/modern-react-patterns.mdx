@@ -1,0 +1,46 @@
+---
+title: "Mastering Modern React Patterns"
+description: "Deep dive into React hooks, state management, and component composition in 2026."
+date: "2026-02-15"
+tags: ["React", "TypeScript", "Patterns"]
+---
+
+# Mastering Modern React Patterns
+
+React has evolved significantly over the years. In 2026, we are seeing a shift towards more server-centric patterns with **React Server Components (RSC)**, while keeping client interactivity granular.
+
+## The Rise of Server Components
+
+Server Components allow us to render components on the server, reducing the bundle size sent to the client.
+
+```tsx
+// This component runs entirely on the server
+async function BlogPost({ slug }: { slug: string }) {
+  const content = await db.posts.find(slug)
+  return <article>{content}</article>
+}
+```
+
+## Composition Pattern
+
+One of the most powerful patterns in React is **Composition**. Instead of prop drilling, we can use `children` prop.
+
+<div className="bg-secondary p-4 rounded-lg my-4">
+  <strong>Tip:</strong> Always prefer composition over inheritance or complex prop drilling.
+</div>
+
+## Custom Hooks
+
+Custom hooks are still the standard for sharing stateful logic.
+
+```ts
+export function useToggle(initial = false) {
+  const [on, setOn] = useState(initial)
+  const toggle = () => setOn(p => !p)
+  return [on, toggle] as const
+}
+```
+
+## Conclusion
+
+Mastering these patterns will help you build scalable and maintainable React applications.

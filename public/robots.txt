@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://kailash-c12.github.io/tech-blog/sitemap.xml
